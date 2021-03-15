@@ -1,4 +1,91 @@
-form.signup,
-form.login {
-  margin-top: 50px;
+body {
+    background-color: #0b5f4f;
+    padding: 3%;
+    font-family: museo-sans, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+h2 {
+    color: #0b5f4f;
+    font-family: new-spirit, serif;
+    font-weight: 500;
+    font-size: 24px;
+    font-style: normal;
+    margin-bottom: 40px;
+}
+
+label {
+    border-bottom: 0;
+    font-size: 14px;
+}
+
+.sidebar {
+    background-color: #f7f5ed;
+    border-radius: 40px;
+    padding: 40px 20px;
+}
+
+.choose {
+    color: #0b5f4f;
+    font-size: 20px;
+}
+
+.select-wall {
+    border-radius: 20px;
+    border: solid 1px #707070;
+    color: #0b5f4f;
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.select-style {
+    border-radius: 20px;
+    border: solid 1px #707070;
+    color: #0b5f4f;
+    font-size: 16px;
+    padding: 5px;
+    margin: 0 0 15px 0;
+    width: 100%;
+}
+
+.message-form{
+    width: 100%;
+}
+
+.message-input {
+    border-radius: 15px;
+    border: solid 1px #707070;
+    padding: 10px;
+    margin-bottom: 20px;
+    min-height: 300px;
+    width: 100%;
+}
+
+.submit-button {
+    background-color: #0b5f4f;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-family: new-spirit, serif;
+    font-weight: 500;
+    font-size: 20px;
+    font-style: normal;
+    padding: 10px 30px;
+    margin: 20px 0;
+}
+
+/* Dropdown */
+
+.dropdownWall {
+    background-color: #f7f5ed;
+    border: none;
+    border-radius: 50px;
+    color: #0b5f4f;
+    font-family: new-spirit, serif;
+    font-weight: 500;
+    font-size: 48px;
+    padding: 0 40px;
 }

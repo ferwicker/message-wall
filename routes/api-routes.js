@@ -3,13 +3,14 @@ const db = require("../models");
 const passport = require("../config/connection");
 
 module.exports = function(app) {
-
+  
   app.post("/api/search", (req, res) => {
     db.User.create({
       message: req.body.message_desc,
       message_category: req.body.message_category_id,
       likes: req.body.likes,
     };
+
 
   // Route for logging user out
   app.get("/api/add", (req, res) => {
