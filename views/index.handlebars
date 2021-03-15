@@ -1,0 +1,47 @@
+<!--page container-->
+      <div class="container-fluid">
+        <div class="row">
+            <!--sidebar-->
+            <section class="col-sm-3">
+                <div class="sidebar d-flex flex-column justify-content-center align-items-center">
+                    <h2>Submit your message</h2>
+                    <p class="choose">Choose a wall to post to:</p>
+                    <form class="message-form" id="messageForm">
+
+                        <select class="select-wall" name="wall-select" id="wall-select">
+                            <option value="before-i-die">Before I die I want to...</option>
+                            <option value="message-hope">Messages of hope</option>
+                        </select>
+
+                        <input class="message-input" type="textarea" id="message-body" name="message-body" maxlength="100">
+                        <label>Select your font:</label>
+                        <select class="select-style" name="font-select" id="font-select">
+                            {{#each fonts}}
+                                <option value="{{id}}">{{font_label}}</option>
+                            {{/each}}
+                        </select>
+
+                        <label>Select your colour:</label>
+                        <select class="select-style" name="colour-select" id="colour-select">
+                            {{#each colour}}
+                                <option value="{{id}}">{{col_label}}</option>
+                            {{/each}}
+                        </select>
+                        <input class="submit-button" type="submit" value="Submit">
+                    </form>
+                </div>  
+            </section>
+            <section class="col-sm-9">
+                <select class="custom-select dropdownWall" id="wall-select">
+                    {{#each message_cat}}
+                         <option class="dropdown-item" id="{{id}}">{{cat_desc}}</option>
+                    {{/each}}
+                </select>
+                <div class="quotes-section">
+                    {{#each messages}}
+                        <div>{{message_desc}}</div>    
+                    {{/each}}
+                </div>
+            </section>
+        </div>
+      </div>
