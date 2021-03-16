@@ -5,61 +5,82 @@ const Sequelize = require('sequelize');
 const sequelize = require('../config/config.js');
 
 // Creates a message model that matches up with DB
+
+module.exports = (sequelize, DataTypes) => {
 const Messages = sequelize.define('messages', {
+  id: {
+    type: DataTypes.id,
+    prmiaryKey: true,
+    allowNull: false
+  },
   message_desc: {
-    type: Sequelize.STRING
+    type: DataTypes.STRING
   },
   message_cat_id: {
-    type: Sequelize.STRING
+    type: DataTypes.STRING,
+    foreignKey: true,
   },
   likes: {
-    type: Sequelize.INTEGER
+    type: DataTypes.INTEGER
   },
-},
-{
-  freezeTableName: true // Model tableName will be the same as the model name instead of being pluralized
-});
+  colour_id: {
+      type: DataTypes.INTEGER,
+      foreignKey: true
+    },
+  font_id: {
+    type: DataTypes.INTEGER,
+    foreignKey: true
+  }
+}),
+return Messages;
+};
 
+module.exports = (sequelize, DataTypes) => {
 const Message_Cat = sequelize.define('message_cat', {
-  cat_desc:{
-    type: Sequelize.STRING
+  id: {
+    type: DataTypes.INTEGER,
+    prmiaryKey: true
   },
-},
-{
-  freezeTableName: true // Model tableName will be the same as the model name instead of being pluralized
-});
+  cat_desc: {
+    type: DataTypes.STRING
+  },
 
+}),
+ return Message_Cat;
+};
+
+module.exports = (sequelize, DataTypes) => {
 const Fonts = sequelize.define('fonts', {
+  id: {
+    type: DataTypes.INTEGER,
+    prmiaryKey: true
+  },
   font_label: {
-    type: Sequelize.STRING
+    type: DataTypes.STRING
   },
   css_col: {
-    type: Sequelize.STRING
+    type: DataTypes.STRING
   },
-},
-{
-  freezeTableName: true // Model tableName will be the same as the model name instead of being pluralized
-});
+}),
+return Fonts;
+};
 
+module.exports = (sequelize, DataTypes) => {
 const Colour = sequelize.define('colour', {
+  id: {
+    type: DataTypes.INTEGER,
+    prmiaryKey: true
+  },
   col_label: {
-    type: Sequelize.STRING
+    type: DataTypes.STRING
   },
   css_name: {
-    type: Sequelize.STRING
+    type: DataTypes.STRING
   },
-},
-{
-  freezeTableName: true // Model tableName will be the same as the model name instead of being pluralized
-});
+}),
+  return Colour;
+};
 
 // force: true will drop the table if it already exists
 tableName.sync({force: true});
   // Table created
-
-
-// Makes the  Model available for other files (will also create a table)
-module.exports = Messages;
-module.exports = Message_Cat;
-module.exports = Fonts;
-module.exports = Colour;
