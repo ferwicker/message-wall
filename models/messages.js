@@ -1,16 +1,22 @@
-const sequelize = require("sequelize");
+const { ForeignKeyConstraintError } = require("sequelize");
 
 // Creates a message model that matches up with DB
-module.exports = (sequelize, Datatypes) => {
+module.exports = (sequelize, DataTypes) => {
     const Messages = sequelize.define('messages', {
   message_desc: {
-    type: Datatypes.STRING
+    type: DataTypes.STRING
   },
   message_cat_id: {
-    type: Datatypes.STRING
+    type: DataTypes.STRING
   },
   likes: {
-    type: Datatypes.INTEGER
+    type: DataTypes.INTEGER
+  },
+  font_id: {
+    type: DataTypes.INTEGER,
+  },
+  colour_id: {
+    type: DataTypes.INTEGER
   },
 },
 {

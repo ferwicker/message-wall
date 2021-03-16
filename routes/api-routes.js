@@ -1,8 +1,29 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
-const passport = require("../config/connection");
+const passport = require("../config/config.json");
 
 module.exports = function(app) {
+
+  //get messages
+app.get("/api/", (req,res) => {
+  db.messages.findAll({}).then((dbmessages) => res.json(dbmessages));
+});
+
+  //get fonts
+  app.get("/api/", (req,res) => {
+    db.fonts.findAll({}).then((dbfonts) => res.json(dbfonts));
+  });
+
+  //get colours
+  app.get("/api/", (req,res) => {
+    db.colour.findAll({}).then((dbcolour) => res.json(dbcolour));
+  });
+
+  //get categories
+  app.get("/api/", (req,res) => {
+    db.categories.findAll({}).then((dbcategories) => res.json(dbcategories));
+  });
+
   
   app.post("/api/search", (req, res) => {
     db.User.create({
@@ -10,6 +31,7 @@ module.exports = function(app) {
       message_category: req.body.message_category_id,
       likes: req.body.likes,
     };
+    console.log(res)
 
 
   // Route for logging user out
