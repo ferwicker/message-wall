@@ -1,34 +1,44 @@
-// Requiring our models and passport as we've configured it
-const db = require("../models");
-const passport = require("../config/connection");
+// Requiring our models
+const db = require('../models/messages');
 
-module.exports = function(app) {
-
-  app.post("/api/search", (req, res) => {
-    db.User.create({
-      message: req.body.message_desc,
-      message_category: req.body.message_category_id,
-      likes: req.body.likes,
-    };
-
-  // Route for logging user out
-  app.get("/api/add", (req, res) => {
-
+// Routes
+module.exports = (app) => {
+  // GET route for getting all of the todos
+  app.get('/api/messages', (req, res) => {
+    // findAll returns all entries for a table when used with no options
+    db.messages.findAll({}).then((dbMessages) => res.json(dbMessages));
 
   });
 
-  // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", (req, res) => {
-    if (!req.user) {
-      // The user is not logged in, send back an empty object
-      res.json({});
-    } else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
-      res.json({
-        email: req.user.email,
-        id: req.user.id
-      });
-    }
+  // POST route for saving a new todo
+  app.post('/api/messages', (req, res) => {
+    db.Messages.create({
+      message: req.body.message_desc,
+      message_cat: req.body.message_cat_id,
+      font: req.body.font_id,
+      colour: req.body.colour_id,
+      likes: req.body.likes
+    }).then((dbMessages) => res.json(dbMessages));
+  });
+
+  // PUT route for updating todos. We can get the updated todo data from req.body
+  app.put('/api/todos', (req, res) => {
+    db.Todo.update(
+      {
+        likes: req.body.likes,
+      },
+      {
+        where: {
+          id: req.body.message_id,
+        },
+      }
+    ).then((dbMessages) => res.json(dbMessages));
   });
 };
+
+
+// (select message_desc, cat_desc, col_label, font_label
+//   from messages, colour, fonts, message_cat
+//   where font_id = fonts.id
+//   and colour_id = colour.id
+//   and message_cat_id = message_cat.id)
