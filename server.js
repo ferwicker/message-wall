@@ -5,7 +5,7 @@ const exphbs = require("express-handlebars");
 const app = express();
 
 // Setting up port and requiring models for syncing
-const PORT = process.env.PORT || 3306;
+const PORT = process.env.PORT || 8080;
 
 const db = require("./models");
 
@@ -14,7 +14,7 @@ const db = require("./models");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(express.static(""));
+app.use(express.static("public"));
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
