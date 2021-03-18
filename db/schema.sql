@@ -1,4 +1,3 @@
-
 --  * Create schema.
 DROP DATABASE IF EXISTS message_wall;
 CREATE DATABASE message_wall;
@@ -8,12 +7,14 @@ CREATE DATABASE message_wall;
 USE message_wall;
 
 CREATE TABLE messages (
-id INT AUTO_INCREMENT PRIMARY KEY NOT NUll, 
+id INT AUTO_INCREMENT PRIMARY KEY NOT NULL, 
 message_desc VARCHAR(100),
-message_cat_id INT FOREIGN KEY,
+message_cat_id INT,
 likes INT,
-font_id INT FOREIGN KEY,
-color_id INT FOREIGN KEY
+font_id INT,
+colour_id INT,
+FOREIGN KEY (font_id) REFERENCES fonts(id),
+FOREIGN KEY (colour_id) REFERENCES colour(id)
 );
 
 CREATE TABLE message_cat (
