@@ -18,21 +18,22 @@ module.exports = function(app) {
       message_category: req.body.message_category_id,
       font_id: req.body.font_id,
       colour_id: req.body.colour_id
-    });
+    }).then((dbmessages) => res.json(dbmessages));
   });
 
-  //   // PUT route for updating todos. We can get the updated todo data from req.body
-  //   app.put('/api/todos', (req, res) => {
-  //     db.Todo.update(
-  //       {
-  //         text: req.body.text,
-  //         complete: req.body.complete,
-  //       },
-  //       {
-  //         where: {
-  //           id: req.body.id,
-  //         },
-  //       }
-  //     ).then((dbTodo) => res.json(dbTodo));
-  //   });
-};
+
+//     // PUT route for updating todos. We can get the updated todo data from req.body
+//     app.put('/api/todos', (req, res) => {
+//       db.Todo.update(
+//         {
+//           text: req.body.text,
+//           complete: req.body.complete,
+//         },
+//         {
+//           where: {
+//             id: req.body.id,
+//           },
+//         }
+//       ).then((dbTodo) => res.json(dbTodo));
+//     });
+// };

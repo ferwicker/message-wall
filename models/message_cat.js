@@ -6,9 +6,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING
       }
     },
-
-    Message_Cat.hasMany(messages, { foreignKey: "id" }),
-
     {
       freezeTableName: true // Model tableName will be the same as the model name instead of being pluralized
     }
