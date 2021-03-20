@@ -1,10 +1,10 @@
 /* eslint-disable camelcase */
 $(document).ready(() => {
   const messageForm = $("#messageForm");
-  const selWall = $("wall-select");
-  const messageInput = $("message-body");
-  const selFont = $("font-select");
-  const selColour = $("colour-select");
+  const selWall = $("#wall-select");
+  const messageInput = $("#message-body");
+  const selFont = $("#font-select");
+  const selColour = $("#colour-select");
 
   messageForm.on("submit", e => {
     e.preventDefault();
@@ -19,10 +19,10 @@ $(document).ready(() => {
     }
 
     const newMessage = {
-      message_desc: message,
-      message_cat_id: wall,
+      message_body: message,
+      category_id: wall,
       font_id: font,
-      color_id: colour
+      colour_id: colour
     };
     fetch("api/messages", {
       method: "POST",
@@ -33,7 +33,7 @@ $(document).ready(() => {
       body: JSON.stringify(newMessage)
     }).then(() => {
       messageInput.val("");
-      location.reload("");
+      location.reload("/");
     });
   });
 }); //end of script
