@@ -5,19 +5,18 @@ const passport = require("../config/config.json");
 module.exports = function(app) {
   //get messages
   app.get("/api/wall", (req, res) => {
-    db.messages.findAll({}).then(dbmessages => res.json(dbmessages));
-    db.fonts.findAll({}).then(dbfonts => res.json(dbfonts));
-    db.colour.findAll({}).then(dbcolour => res.json(dbcolour));
-    db.category.findAll({}).then(dbcategory => res.json(dbcategory));
+
   });
 
   //create new message
-  app.post("/api/add", (req, res) => {
+  app.post("/api/messages", (req, res) => {
     db.messages.create({
-      message: req.body.message_desc,
-      message_category: req.body.message_category_id,
+      message_body: req.body.message_body,
+      category_id: req.body.category_id,
       font_id: req.body.font_id,
       colour_id: req.body.colour_id
+    }).then((result) => {
+      res.status(200).end();
     });
   });
 

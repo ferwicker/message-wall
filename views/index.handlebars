@@ -9,8 +9,8 @@
                     <form class="message-form" id="messageForm">
 
                         <select class="select-wall" name="wall-select" id="wall-select">
-                            {{#each message_cat}}
-                                <option value="{{id}}">{{cat_desc}}</option>
+                            {{#each categories}}
+                                <option value="{{id}}">{{category_label}}</option>
                             {{/each}}
                         </select>
 
@@ -24,8 +24,8 @@
 
                         <label>Select your colour:</label>
                         <select class="select-style" name="colour-select" id="colour-select">
-                            {{#each colour}}
-                                <option value="{{id}}">{{col_label}}</option>
+                            {{#each colours}}
+                                <option value="{{id}}">{{colour_label}}</option>
                             {{/each}}
                         </select>
                         <input class="submit-button" type="submit" value="Submit">
@@ -34,16 +34,15 @@
             </section>
             <section class="col-sm-9">
                 <select class="custom-select dropdownWall" id="wall-select">
-                    {{#each message_cat}}
-                         <option class="dropdown-item" value="{{id}}">{{cat_desc}}</option>
+                    {{#each categories}}
+                         <option class="dropdown-item" value="{{id}}">{{category_label}}</option>
                     {{/each}}
                 </select>
                 <div class="quotes-section">
                     <div class="grid">
-                        {{#each messages}}
-                            
+                        {{#each messages}} 
                             <div class="grid-item">
-                                <div>{{message_desc}}</div>
+                                <div class="">{{message_body}}</div>
                             </div>  
                         {{/each}}
                     </div>
