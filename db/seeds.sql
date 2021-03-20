@@ -13,7 +13,7 @@ INSERT INTO colour (col_label, css_name) VALUES
 ("Forest Green", "colours"),
 ("Cream", "colours");
 
-INSERT into messages (message_desc, message_cat_id, font_id, colour_id)
+INSERT into messages (message_desc, message_cat_id, font_id, colour_id) VALUES
     ("bungy jumping", 2, 2, 3),
     ("learn how to perform magic", 2, 3, 2),
     ("have a long nap", 1, 2, 3),
