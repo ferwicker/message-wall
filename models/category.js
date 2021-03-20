@@ -1,12 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
-  const Colour = sequelize.define(
-    "colour",
+  const Category = sequelize.define(
+    "categories",
     {
-      colour_label: {
+      category_label: {
         type: DataTypes.STRING
-      },
-      colour_css: {
-        type: DataTypes.TEXT
       }
     },
     {
@@ -14,5 +11,5 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  return Colour;
+  return Category;
 };
