@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Colour = sequelize.define(
-    "colour",
+    "colours",
     {
       colour_label: {
         type: DataTypes.STRING
@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     {
+      timestamps: false,
       freezeTableName: true // Model tableName will be the same as the model name instead of being pluralized
     }
   );

@@ -5,7 +5,7 @@ const exphbs = require("express-handlebars");
 const app = express();
 
 // Setting up port and requiring models for syncing
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8000;
 
 const db = require("./models");
 
@@ -20,7 +20,8 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Requiring our routes
-require("./routes/api-routes.js")(app);
+require("./routes/api-routes")(app);
+require("./routes/html-routes")(app);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {
