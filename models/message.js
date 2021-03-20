@@ -1,16 +1,13 @@
 // Creates a message model that matches up with DB
 module.exports = (sequelize, DataTypes) => {
-  const Messages = sequelize.define(
+  const Message = sequelize.define(
     "messages",
     {
-      message_desc: {
+      message_body: {
         type: DataTypes.STRING
       },
-      message_cat_id: {
+      category_id: {
         type: DataTypes.STRING
-      },
-      likes: {
-        type: DataTypes.INTEGER
       },
       font_id: {
         type: DataTypes.INTEGER
@@ -24,11 +21,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  // Messages.sync({ force: true });
-
-  return Messages;
+  return Message;
 };
 
-// force: true will drop the table if it already exists
-
-// Table created
