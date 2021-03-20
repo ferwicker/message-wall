@@ -1,21 +1,32 @@
-// Requiring path to so we can use relative routes to our HTML files
-const path = require("path");
+// Dependencies
+const { promises } = require('fs');
+const path = require('path');
+const db = require('../models');
 
-module.exports = function(app) {
+
+
+// Routes
+module.exports = (app) => {
+
   app.get("/", (req, res) => {
-    // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/wall");
-    }
-    res.sendFile(path.join(__dirname, "../public/index.html"));
+    const categories = db.categories.findAll({raw : true});
+    const fonts = db.fonts.findAll({raw : true});
+    const colours = db.colours.findAll({raw : true});
+    const messages = db.messages.findAll({raw : true});
+    Promise.all([categories, fonts, colours, messages]).then((data) => {   
+        const categoryObj = {
+          categories: data[0],
+          fonts: data[1],
+          colours: data[2],
+          messages: data[3]
+        };
+      
+      console.log(categoryObj);
+      res.render('index', categoryObj);
+    })
   });
 
   app.get("/add", (req, res) => {
-    // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
-    res.sendFile(path.join(__dirname, "../public/index.html"));
+    res.render('index', categories, fonts, colours, messages);
   });
-
 };
