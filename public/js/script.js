@@ -6,6 +6,8 @@ $(document).ready(() => {
   const selFont = $("#font-select");
   const selColour = $("#colour-select");
 
+  const mainWall = $("#mainWall");
+
   messageForm.on("submit", e => {
     e.preventDefault();
 
@@ -36,4 +38,23 @@ $(document).ready(() => {
       location.reload("/");
     });
   });
+
+  // add what to do when a new wall is requested
+  mainWall.on("change", e => {
+    e.preventDefault();
+    
+    const newWall = mainWall.val();
+    console.log(`front end sending value ${newWall}`)
+
+    fetch(`api/wall/${newWall}`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    }).then((res, err) => {
+      if (err) throw err;
+    })
+  })
+
 }); //end of script

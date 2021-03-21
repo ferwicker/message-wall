@@ -1,11 +1,29 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
-const passport = require("../config/config.json");
 
 module.exports = function(app) {
   //get messages
-  app.get("/api/wall", (req, res) => {
-
+  app.get("api/wall/:category_id", (req, res) => {
+    const wallId = req.params.category_id;
+    console.log(req.params);
+    console.log(`api id value: ${wallId}`);
+    const messages = db.messages.findAll({
+      raw : true,
+      where: {
+        category_id: wallId
+      }});
+    const categories = db.categories.findAll({raw : true});
+    const fonts = db.fonts.findAll({raw : true});
+    const colours = db.colours.findAll({raw : true});
+    Promise.all([categories, fonts, colours, messages]).then((data) => {
+      const renderObj = {
+        categories: data[0],
+        fonts: data[1],
+        colours: data[2],
+        messages: data[3]
+      };
+      res.render('index', renderObj);
+    }).catch(err => console.log(err));
   });
 
   //create new message
