@@ -104,15 +104,15 @@ label {
   }
 
   .grid-item {
-    width: 20%;
-    padding: 15px;
-    min-height: 120px;
+    width: 30%;
+    min-width: 200px;
     float: left;
     /*border: black 1px solid;*/
+    padding: 10px;
   }
   
-  .grid-item--width2 { width: 40%; }
-  .grid-item--width3 { width: 60%; }
+  .grid-item--width2 { width: 390px; }
+  .grid-item--width3 { width: 590px; }
   .grid-item--width4 { width: 80%; }
   
   .grid-item--height2 { height: 200px; }
@@ -156,4 +156,22 @@ label {
 
   .cream {
     color: #f7f5ed;
+  }
+
+  /* refresh button */
+
+  .refresh-button {
+      background-color: #f7f5ed;
+      color: #0b5f4f;
+      font-size: 40px;
+      padding: 22px;
+      border-radius: 50%;
+      border: none;
+      margin-left: 15px;
+  }
+
+  .refresh-button:hover {
+    background-color: #074338;
+    color: #f7f5ed;
+    transition: all .4s;
   }
