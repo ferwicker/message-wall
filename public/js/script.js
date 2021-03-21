@@ -35,26 +35,17 @@ $(document).ready(() => {
       body: JSON.stringify(newMessage)
     }).then(() => {
       messageInput.val("");
-      location.reload("/");
+      location.replace(`/${wall}`); // loads the wall corresponding to the new message
     });
   });
 
-  // add what to do when a new wall is requested
+  // what to do when a new wall is selected
   mainWall.on("change", e => {
     e.preventDefault();
     
     const newWall = mainWall.val();
-    console.log(`front end sending value ${newWall}`)
-
-    fetch(`api/wall/${newWall}`, {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    }).then((res, err) => {
-      if (err) throw err;
-    })
+    console.log(`front end sending value ${newWall}`);
+    location.replace(`/${newWall}`)
   })
 
 }); //end of script

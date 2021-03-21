@@ -35,7 +35,8 @@
             <section class="col-sm-9">
                 <select class="custom-select dropdownWall" id="mainWall">
                     {{#each categories}}
-                         <option class="dropdown-item" value="{{id}}">{{category_label}}</option>
+                        {{#if selected}}<option class="dropdown-item" value="{{id}}" selected="selected">{{category_label}}</option>{{/if}}
+                        {{#unless selected}}<option class="dropdown-item" value="{{id}}">{{category_label}}</option>{{/unless}}
                     {{/each}}
                 </select>
                 <div class="quotes-section">
