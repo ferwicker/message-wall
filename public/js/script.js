@@ -1,5 +1,7 @@
 /* eslint-disable camelcase */
+
 $(document).ready(() => {
+
   const messageForm = $("#messageForm");
   const selWall = $("#wall-select");
   const messageInput = $("#message-body");
@@ -7,6 +9,13 @@ $(document).ready(() => {
   const selColour = $("#colour-select");
 
   const mainWall = $("#mainWall");
+
+  const refreshButton = $(".refresh-button");
+
+  refreshButton.on('click', e => {
+    e.preventDefault();
+    location.reload();
+  })
 
   messageForm.on("submit", e => {
     e.preventDefault();
