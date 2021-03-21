@@ -1,9 +1,11 @@
 // Requiring our models and passport as we've configured it
+const { promises } = require('fs');
 const db = require("../models");
 
 module.exports = function(app) {
   //get messages
-  app.get("api/wall/:category_id", (req, res) => {
+  /* // does not render
+  app.get("/api/wall/:category_id", (req, res) => {
     const wallId = req.params.category_id;
     console.log(req.params);
     console.log(`api id value: ${wallId}`);
@@ -22,9 +24,10 @@ module.exports = function(app) {
         colours: data[2],
         messages: data[3]
       };
+      console.log(renderObj);
       res.render('index', renderObj);
     }).catch(err => console.log(err));
-  });
+  }); */
 
   //create new message
   app.post("/api/messages", (req, res) => {
