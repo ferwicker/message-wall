@@ -19,6 +19,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "express-handlebars": "^5.2.1",
+    "infinite-scroll": "^4.0.1",
     "masonry-layout": "^4.2.2",
     "mysql2": "^2.2.5",
     "sequelize": "^6.5.1"
