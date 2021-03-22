@@ -36,6 +36,10 @@ Heroku
 
 https://infinite-eyrie-69847.herokuapp.com/
 
+## Link to project presentation
+
+https://docs.google.com/presentation/d/16MbsZRXk4ord6ewOd6OednroaXXv9o2SRbaQ_i1XEPg/edit?usp=sharing
+
 
 
 
