@@ -24,6 +24,8 @@ label {
     background-color: #f7f5ed;
     border-radius: 40px;
     padding: 20px;
+    position: sticky;
+    top: 30px;
 }
 
 .choose {
