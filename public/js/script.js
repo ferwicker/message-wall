@@ -2,6 +2,12 @@
 
 $(document).ready(() => {
 
+  $('.grid').masonry({
+    // options
+    itemSelector: '.grid-item',
+    columnWidth: 200
+  });
+
   const messageForm = $("#messageForm");
   const selWall = $("#wall-select");
   const messageInput = $("#message-body");
